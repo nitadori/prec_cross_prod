@@ -39,9 +39,16 @@ inline double tp_fma(double a, double b, double c){ return ::fma(a, b, c); }
 
 template <typename F>
 inline F prec_cross_prod_inner(F ux, F uy, F vx, F vy){
+#if 1
 	F p = ux * vy;
 	F r = tp_fma(ux, vy, -p);
 	return r + tp_fma(-vx, uy, p);
+#else
+	F p = ux * vy;
+	F lhs = tp_fma(ux, vy, -p);
+	F rhs = tp_fma(vx, uy, -p);
+	return lhs - rhs;
+#endif
 }
 
 template <typename F>
