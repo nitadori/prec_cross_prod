@@ -81,7 +81,7 @@ int main(){
 
 	Vec3<double> u, v;
 
-	auto rnd = drand48;
+	auto rnd = drand48; // ごめんなさい
 
 	u.x = rnd()*rnd();
 	u.y = rnd()*rnd();
@@ -89,6 +89,7 @@ int main(){
 
 	const double eps = 1.e-7;
 
+	// 微小回転でほぼ平行なベクトルを作る
 	v.x = u.x + eps * (rnd() * u.y + rnd() * u.z);
 	v.y = u.y + eps * (rnd() * u.z + rnd() * u.x);
 	v.z = u.z + eps * (rnd() * u.x + rnd() * u.y);
